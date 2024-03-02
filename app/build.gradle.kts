@@ -123,6 +123,7 @@ dependencies {
     //Coil
     implementation("io.coil-kt:coil-compose:2.5.0")
     implementation("io.coil-kt:coil-svg:2.5.0")
+    implementation("io.coil-kt:coil-gif:2.1.0")
 
     //datepicker dialog
     implementation("io.github.vanpra.compose-material-dialogs:datetime:0.8.1-rc")

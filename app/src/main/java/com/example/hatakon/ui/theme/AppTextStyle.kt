@@ -13,6 +13,8 @@ sealed class AppTextStyle(fontFamily: FontFamily, weight: FontWeight) {
     val sp14 get() = style.copy(fontSize = 14.sp)
     val sp16 get() = style.copy(fontSize = 16.sp)
     val sp18 get() = style.copy(fontSize = 18.sp)
+
+    val sp20 get() = style.copy(fontSize = 20.sp)
     val sp24 get() = style.copy(fontSize = 24.sp)
     val sp28 get() = style.copy(fontSize = 28.sp)
     val sp30 get() = style.copy(fontSize = 30.sp)

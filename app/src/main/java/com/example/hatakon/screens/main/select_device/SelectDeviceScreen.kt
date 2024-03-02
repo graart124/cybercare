@@ -80,9 +80,9 @@ fun SelectDeviceScreen(
                 .padding(horizontal = 12.dp, vertical = 14.dp)
         ) {
             AddItemSection(
-                title = "Select device type",
+                title = stringResource(R.string.select_device_type),
                 value = state.selectedDeviceType,
-                hint = "Choose device type",
+                hint = stringResource(R.string.choose_device_type),
                 onClick = {
                     showSelectTypeDialog.value = true
                 }
@@ -151,7 +151,7 @@ fun SelectDeviceScreen(
                     }
                     return@CheckClearButtons
                 }
-                navigator.navigate(DeviceInfoScreenDestination(device =state.selectedDevice))
+                navigator.navigate(DeviceInfoScreenDestination(device = state.selectedDevice))
             })
 
         }
