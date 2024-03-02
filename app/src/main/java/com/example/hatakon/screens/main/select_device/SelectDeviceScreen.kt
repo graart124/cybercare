@@ -83,7 +83,6 @@ fun SelectDeviceScreen(
                 title = "Select device type",
                 value = state.selectedDeviceType,
                 hint = "Choose device type",
-                iconId = R.drawable.ic_arrow_down,
                 onClick = {
                     showSelectTypeDialog.value = true
                 }
@@ -93,7 +92,6 @@ fun SelectDeviceScreen(
                 title = stringResource(R.string.select_device_brand),
                 value = state.selectedDeviceBrand,
                 hint = stringResource(R.string.choose_device_brand),
-                iconId = R.drawable.ic_arrow_down,
                 onClick = {
                     if(selectedTypeIsNull){
                         coroutineScope.launch {
@@ -118,7 +116,6 @@ fun SelectDeviceScreen(
                 title = stringResource(R.string.select_device_model),
                 value = state.selectedDevice?.deviceModel,
                 hint = stringResource(R.string.choose_device_model),
-                iconId = R.drawable.ic_arrow_down,
                 onClick = {
                     if(selectedTypeIsNull) {
                         coroutineScope.launch {

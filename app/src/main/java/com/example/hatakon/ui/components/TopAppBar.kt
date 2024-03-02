@@ -41,7 +41,7 @@ fun TopAppBar(
                 Image(
                     modifier = Modifier
                         .size(40.dp)
-                        .rotate(180f)
+                        .rotate(90f)
                         .clickable {
                             navigator?.navigateUp()
                         },

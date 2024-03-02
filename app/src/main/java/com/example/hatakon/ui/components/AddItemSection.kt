@@ -1,6 +1,5 @@
 package com.example.hatakon.ui.components
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.hatakon.R
 import com.example.hatakon.ui.theme.AppTextStyle
 import com.example.hatakon.ui.theme.PurpleDark
 import com.example.hatakon.ui.theme.UnselectedNavBarItemColor
@@ -33,7 +33,6 @@ fun AddItemSection(
     title: String,
     value: String?,
     hint: String,
-    @DrawableRes iconId: Int,
     onClick: () -> Unit
 ) {
     Column(
@@ -66,7 +65,7 @@ fun AddItemSection(
                 )
                 Image(
                     modifier = Modifier.size(24.dp),
-                    painter = painterResource(id =iconId),
+                    painter = painterResource(id= R.drawable.ic_arrow_down),
                     contentDescription = null,
                     contentScale = ContentScale.Crop
                 )
