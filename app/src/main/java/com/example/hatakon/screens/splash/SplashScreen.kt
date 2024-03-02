@@ -66,7 +66,7 @@ fun SplashScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.logo),
+            painter = painterResource(id = R.drawable.ic_splach_logo_fixed),
             contentDescription = "welcome",
             Modifier.size(200.dp, 260.dp),
             contentScale = ContentScale.Crop
