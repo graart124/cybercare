@@ -25,10 +25,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.example.hatakon.R
 import com.example.hatakon.ui.theme.AppTextStyle
 import com.example.hatakon.ui.theme.Background
 import com.example.hatakon.ui.theme.NavBarColor
@@ -41,7 +39,8 @@ fun SelectItemDialog(
     onDismissClick: () -> Unit,
     onChooseItem: ((Int) -> Unit),
     items: List<String>,
-    selectedItemId: Int? = null
+    selectedItemId: Int? = null,
+    text: String
 ) {
 
     if (!showDialog) return
@@ -58,7 +57,7 @@ fun SelectItemDialog(
         ) {
             Column(modifier=Modifier.padding(16.dp)) {
                 Text(
-                    text = stringResource(R.string.choose_type),
+                    text = text,
                     style = AppTextStyle.RobotoBold.sp14,
                     color = Color.White
                 )
