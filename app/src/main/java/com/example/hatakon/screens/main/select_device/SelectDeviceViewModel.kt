@@ -1,5 +1,6 @@
 package com.example.hatakon.screens.main.select_device
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.hatakon.core.data.model.Device
 import com.example.hatakon.features.device.repository.DeviceRepository
@@ -92,6 +93,10 @@ class SelectDeviceViewModel @Inject constructor(
 
     fun selectDevice(device: Device) {
         _uiState.update { it.copy(selectedDevice = device) }
+        Log.d(
+            "MyTag",
+            "model = " + device.deviceModel + " security" + device.deviceSecurity + " infoLink " + device.deviceInfoLink + " comments " + device.comments+" ghz "+device.ghz+" imageLink "+device.imageLink+" privacyShutter "+device.privacyShutter+" wifi "+device.wifi
+        )
     }
 
     fun clearData() {

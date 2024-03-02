@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hatakon.R
+import com.example.hatakon.screens.destinations.DeviceInfoScreenDestination
 import com.example.hatakon.screens.main.select_device.components.SelectItemDialog
 import com.example.hatakon.ui.components.AddItemSection
 import com.example.hatakon.ui.components.CheckClearButtons
@@ -111,7 +112,13 @@ fun SelectDeviceScreen(
             CheckClearButtons(onDeleteClick = {
                 viewModel.clearData()
             }, onSaveClick = {
-
+                if(state.selectedDevice==null){
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar("U need to choose model")
+                    }
+                    return@CheckClearButtons
+                }
+                navigator.navigate(DeviceInfoScreenDestination(device =state.selectedDevice))
             })
 
         }

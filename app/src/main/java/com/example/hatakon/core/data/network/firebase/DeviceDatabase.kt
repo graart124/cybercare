@@ -1,5 +1,6 @@
 package com.example.hatakon.core.data.network.firebase
 
+import android.util.Log
 import com.example.hatakon.core.data.model.Device
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -16,10 +17,8 @@ class DeviceDatabase {
             .addOnSuccessListener { querySnapshot ->
                 val devicesList = mutableListOf<Device>()
                 for (document in querySnapshot.documents) {
-                    val device = document.toObject(Device::class.java)
-                    device?.let {
-                        devicesList.add(it)
-                    }
+                    val device = Device.fromDocument(document)
+                    devicesList.add(device)
                 }
                 onSuccess(devicesList)
             }
@@ -81,12 +80,12 @@ class DeviceDatabase {
             .whereEqualTo("device_brand", deviceBrand)
             .get()
             .addOnSuccessListener { querySnapshot ->
+                Log.d("MyTag", querySnapshot.documents.toString())
+
                 val devicesList = mutableListOf<Device>()
                 for (document in querySnapshot.documents) {
-                    val device = document.toObject(Device::class.java)
-                    device?.let {
-                        devicesList.add(it)
-                    }
+                    val device = Device.fromDocument(document)
+                    devicesList.add(device)
                 }
                 onSuccess(devicesList)
             }
