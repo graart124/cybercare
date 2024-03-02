@@ -81,8 +81,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.activity:activity-compose:1.8.2")
     implementation("androidx.webkit:webkit:1.10.0")
-    implementation("com.google.firebase:firebase-auth:22.3.1")
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("androidx.multidex:multidex:2.0.1")
     implementation("androidx.core:core-ktx:+")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
@@ -135,8 +133,12 @@ dependencies {
 //    implementation("com.google.accompanist:accompanist-systemuicontroller:0.20.0")
 
     //Firebase
+    implementation ("com.google.firebase:firebase-core:21.1.1")
     implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
     implementation("com.google.firebase:firebase-config-ktx")
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.3")
 
 //    // GMS
 //    implementation("com.google.android.gms:play-services-base:18.3.0")

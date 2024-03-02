@@ -1,8 +1,9 @@
-package com.example.hatakon.core.data.di
+package com.example.hatakon.di
 
 import android.content.Context
 import com.example.hatakon.core.data.local.storage.EncryptedStorageDataSource
 import com.example.hatakon.core.data.local.storage.UserDataLocalStorage
+import com.example.hatakon.core.data.network.firebase.DeviceDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object LocalStorageModule {
+object DataModule {
 
     @Provides
     @Singleton
@@ -39,4 +40,9 @@ object LocalStorageModule {
         return UserDataLocalStorage(encryptedStorageDataSource)
     }
 
+    @Provides
+    @Singleton
+    fun provideDeviceDatabase(): DeviceDatabase {
+        return DeviceDatabase()
+    }
 }

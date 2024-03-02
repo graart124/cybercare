@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hatakon.R
+import com.example.hatakon.screens.destinations.SelectDeviceScreenDestination
 import com.example.hatakon.ui.theme.AppTextStyle
 import com.example.hatakon.ui.theme.Background
 import com.example.hatakon.ui.theme.Primary
@@ -75,7 +76,7 @@ fun LoginScreen(
         loginResult?.let { success ->
             if (success) {
                 navigator.popBackStack()
-//                navigator.navigate(ScheduleScreenDestination)
+                navigator.navigate(SelectDeviceScreenDestination)
             } else {
                 snackbarHostState.showSnackbar("Помилка входу\nБудь ласка, спробуйте знову")
             }
