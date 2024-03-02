@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hatakon.R
@@ -49,6 +50,9 @@ fun SelectDeviceScreen(
 
     val coroutineScope = rememberCoroutineScope()
 
+    val selectedTypeIsNull = state.selectedDeviceType == null
+    val selectedBrandIsNull = state.selectedDeviceBrand == null
+
     LaunchedEffect(key1 = actionResult) {
         if (!actionResult.info.isNullOrEmpty()) {
             coroutineScope.launch {
@@ -68,6 +72,7 @@ fun SelectDeviceScreen(
         },
         containerColor = Background
     ) {
+
         Column(
             modifier = Modifier
                 .scrollable(state = rememberScrollState(), orientation = Orientation.Vertical)
@@ -85,26 +90,57 @@ fun SelectDeviceScreen(
             )
             Spacer(modifier = Modifier.height(12.dp))
             AddItemSection(
-                title = "Select device brand",
-                value = state.selectedDeviceType,
-                hint = "Choose device brand",
+                title = stringResource(R.string.select_device_brand),
+                value = state.selectedDeviceBrand,
+                hint = stringResource(R.string.choose_device_brand),
                 iconId = R.drawable.ic_arrow_down,
                 onClick = {
-                    if(state.selectedDeviceType==null){
+                    if(selectedTypeIsNull){
                         coroutineScope.launch {
                             snackbarHostState.showSnackbar("First select type")
+
                         }
+                        return@AddItemSection
+                    }
+                    else if(state.deviceBrands.isEmpty())
+                    {
+                        coroutineScope.launch {
+                            snackbarHostState.showSnackbar("There is no brands")
+
+                        }
+                        return@AddItemSection
                     }
                     showSelectBrandDialog.value = true
                 }
             )
             Spacer(modifier = Modifier.height(12.dp))
             AddItemSection(
-                title = "Select device model",
-                value = state.selectedDeviceType,
-                hint = "Choose device model",
+                title = stringResource(R.string.select_device_model),
+                value = state.selectedDevice?.deviceModel,
+                hint = stringResource(R.string.choose_device_model),
                 iconId = R.drawable.ic_arrow_down,
                 onClick = {
+                    if(selectedTypeIsNull) {
+                        coroutineScope.launch {
+                            snackbarHostState.showSnackbar("First select type")
+
+                        }
+                        return@AddItemSection
+                    }
+                    else if(selectedBrandIsNull){
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar("First select brand")
+                            }
+                        return@AddItemSection
+                    }
+                    else if(state.devicesWithBrandAndType.isEmpty())
+                    {
+                        coroutineScope.launch {
+                            snackbarHostState.showSnackbar("There is no brands")
+
+                        }
+                        return@AddItemSection
+                    }
                     showSelectModelDialog.value = true
                 }
             )
@@ -134,7 +170,8 @@ fun SelectDeviceScreen(
             viewModel.selectDeviceType(state.deviceTypes[id])
         },
         items = state.deviceTypes,
-        selectedItemId = state.deviceTypes.indexOf(state.selectedDeviceType)
+        selectedItemId = state.deviceTypes.indexOf(state.selectedDeviceType),
+        text = stringResource(id = R.string.choose_type)
     )
 
     SelectItemDialog(
@@ -146,7 +183,8 @@ fun SelectDeviceScreen(
             viewModel.selectBrand(state.deviceBrands[id])
         },
         items = state.deviceBrands,
-        selectedItemId = state.deviceBrands.indexOf(state.selectedDeviceBrand)
+        selectedItemId = state.deviceBrands.indexOf(state.selectedDeviceBrand),
+        text = stringResource(id = R.string.choose_device_brand)
     )
 
     SelectItemDialog(
@@ -158,7 +196,8 @@ fun SelectDeviceScreen(
             viewModel.selectDevice(state.devicesWithBrandAndType[id])
         },
         items = state.devicesWithBrandAndType.map { it.deviceModel?:"null" },
-        selectedItemId = state.devicesWithBrandAndType.indexOf(state.selectedDevice)
+        selectedItemId = state.devicesWithBrandAndType.indexOf(state.selectedDevice),
+        text = stringResource(id = R.string.choose_device_model)
     )
 
     if (state.loading) {
