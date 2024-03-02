@@ -7,6 +7,7 @@ data class Device(
     val deviceType: String? = null,
     val deviceInfoLink: String? = null,
     val deviceSecurity: String? = null,
+    val imageLink:String?=null,
     val ghz: String? = null,
     val wifi: Boolean? = null,
     val privacyShutter: Boolean? = null,
