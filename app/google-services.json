@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "84382792906",
+    "project_id": "hatakon-24bd7",
+    "storage_bucket": "hatakon-24bd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84382792906:android:cec209294bc5c869c28833",
+        "android_client_info": {
+          "package_name": "com.example.hatakon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84382792906-q60ihqs1p7l3t0i6bsmc6njuc3ef2brb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hatakon",
+            "certificate_hash": "8804b9f32bb636e2b3bd0b4eff499d856656e670"
+          }
+        },
+        {
+          "client_id": "84382792906-okjp1gtb9pguhmejlv20l6k5itk57abl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOrw-8Ftz7W7r5VPPWGaf2Exps8TvHQmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84382792906-okjp1gtb9pguhmejlv20l6k5itk57abl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
