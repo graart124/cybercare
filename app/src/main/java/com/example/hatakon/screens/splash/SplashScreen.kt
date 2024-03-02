@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hatakon.R
 import com.example.hatakon.screens.destinations.LoginScreenDestination
+import com.example.hatakon.screens.destinations.SelectDeviceScreenDestination
 import com.example.hatakon.screens.destinations.SplashScreenDestination
 import com.example.hatakon.ui.theme.AppTextStyle
 import com.example.hatakon.ui.theme.NavBarColor
@@ -52,7 +53,7 @@ fun SplashScreen(
         if (!isUserAuthorized.value) {
             navigator.navigate(LoginScreenDestination())
         } else{
-            //todo navigate main screen
+            navigator.navigate(SelectDeviceScreenDestination)
         }
     }
 
