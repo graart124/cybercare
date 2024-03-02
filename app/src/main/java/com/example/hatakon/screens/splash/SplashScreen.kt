@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +30,6 @@ import com.example.hatakon.screens.destinations.SelectDeviceScreenDestination
 import com.example.hatakon.screens.destinations.SplashScreenDestination
 import com.example.hatakon.ui.theme.AppTextStyle
 import com.example.hatakon.ui.theme.NavBarColor
-import com.example.hatakon.ui.theme.PinkSplash
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -75,14 +74,14 @@ fun SplashScreen(
         Box(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
-                .background(color = PinkSplash, shape = RoundedCornerShape(10.dp))
+                .width(320.dp)
                 .padding(horizontal = 16.dp, vertical = 16.dp),
             contentAlignment = Alignment.Center
 
         ) {
             Text(
                 text = stringResource(R.string.take_care_of_the_security_of_your_devices),
-                style = AppTextStyle.RobotoRegular.sp30.copy(color = Color.White),
+                style = AppTextStyle.RobotoRegular.sp24.copy(color = Color.White),
                 textAlign = TextAlign.Center
             )
         }
