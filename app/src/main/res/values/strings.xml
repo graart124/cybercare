@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">hatakon</string>
     <string name="web_client_id">84382792906-okjp1gtb9pguhmejlv20l6k5itk57abl.apps.googleusercontent.com</string>
+    <string name="take_care_of_the_security_of_your_devices">Take care of the security of your devices!</string>
 </resources>

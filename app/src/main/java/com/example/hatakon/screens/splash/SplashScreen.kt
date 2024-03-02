@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Text
@@ -20,14 +21,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hatakon.R
 import com.example.hatakon.screens.destinations.LoginScreenDestination
 import com.example.hatakon.screens.destinations.SplashScreenDestination
 import com.example.hatakon.ui.theme.AppTextStyle
-import com.example.hatakon.ui.theme.Background
-import com.example.hatakon.ui.theme.Primary
+import com.example.hatakon.ui.theme.NavBarColor
+import com.example.hatakon.ui.theme.PinkSplash
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -58,25 +60,29 @@ fun SplashScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Background),
+            .background(color = NavBarColor),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_background),
+            painter = painterResource(id = R.drawable.logo),
             contentDescription = "welcome",
+            Modifier.size(200.dp, 260.dp),
             contentScale = ContentScale.Crop
         )
-        Spacer(modifier = Modifier.height(34.dp))
+        Spacer(modifier = Modifier.height(100.dp))
         Box(
             modifier = Modifier
-                .background(color = Primary, shape = RoundedCornerShape(7.dp))
-                .padding(horizontal = 10.dp, vertical = 16.dp),
+                .padding(horizontal = 16.dp)
+                .background(color = PinkSplash, shape = RoundedCornerShape(10.dp))
+                .padding(horizontal = 16.dp, vertical = 16.dp),
             contentAlignment = Alignment.Center
+
         ) {
             Text(
-                text = "",//stringResource(R.string.welcome_anita),
-                style = AppTextStyle.RobotoRegular.sp36.copy(color = Color.White),
+                text = stringResource(R.string.take_care_of_the_security_of_your_devices),
+                style = AppTextStyle.RobotoRegular.sp30.copy(color = Color.White),
+                textAlign = TextAlign.Center
             )
         }
     }
