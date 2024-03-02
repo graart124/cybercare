@@ -8,5 +8,6 @@ data class SelectDeviceUiState(
     val deviceBrands: List<String> = emptyList(),
     val selectedDeviceBrand: String? = null,
     val devicesWithBrandAndType:List<Device> = emptyList(),
-    val selectedDevice:Device? = null
+    val selectedDevice:Device? = null,
+    val loading:Boolean = false
 )
