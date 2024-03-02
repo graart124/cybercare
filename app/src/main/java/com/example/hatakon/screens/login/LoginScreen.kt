@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Button
@@ -77,7 +78,7 @@ fun LoginScreen(
                 navigator.popBackStack()
 //                navigator.navigate(ScheduleScreenDestination)
             } else {
-                snackbarHostState.showSnackbar("Помилка входу\nБудь ласка, спробуйте знову")
+                snackbarHostState.showSnackbar("Error log in\nPlease, try again")
             }
         }
     }
@@ -96,12 +97,12 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.ic_log_in_assistant),
                 contentDescription = "log in",
                 contentScale = ContentScale.Crop
             )
             Column(
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 22.dp)
             ) {
                 Box(
                     modifier = Modifier
@@ -109,18 +110,18 @@ fun LoginScreen(
                             color = PurpleLight.copy(alpha = 0.7f),
                             shape = RoundedCornerShape(7.dp)
                         )
-                        .padding(8.dp),
+                        .padding(horizontal = 22.dp, vertical = 18.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "",//stringResource(R.string.log_in_info),
+                        text = stringResource(R.string.log_in),
                         style = AppTextStyle.RobotoBold.sp14.copy(
                             color = Color.White,
                             lineHeight = TextUnit(value = 24f, type = TextUnitType.Sp)
                         ),
                     )
                 }
-                Spacer(modifier = Modifier.height(54.dp))
+                Spacer(modifier = Modifier.height(24.dp))
                 GoogleButton(
                     onClick = {
                         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -157,25 +158,34 @@ fun GoogleButton(
     ) {
         Row(
             modifier = modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .height(48.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = Modifier
                     .background(Color.White, RoundedCornerShape(6.dp))
-                    .padding(12.dp)
+                    .padding(2.dp)
+                    .height(40.dp)
+                    .width(40.dp),
+                contentAlignment = Alignment.Center
+
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_background),//change to google
+                    modifier = Modifier
+                        .height(16.dp)
+                        .width(16.dp),
+                    painter = painterResource(id = R.drawable.ic_log_in_google_icon),
                     contentDescription = "google icon"
                 )
             }
+            Spacer(modifier = Modifier.width(120.dp))
             Box(
                 modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.Center
+                //contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "",//stringResource(id = R.string.sing_in_with_google),
+                    text = "Log in",
                     style = AppTextStyle.RobotoBold.sp14
                 )
             }
