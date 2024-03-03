@@ -15,7 +15,6 @@ class SplashScreenViewModel @Inject constructor(
     val isUserAuthorized: State<Boolean> = _isUserAuthorized
 
     init {
-        repository.saveUserData(userId = "1", email = "1asfds@gmail.com", photoUrl = null, name = "cotuk3")
         _isUserAuthorized.value = repository.getUserData()!=null
     }
 
