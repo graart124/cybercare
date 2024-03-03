@@ -1,7 +1,11 @@
 package com.example.hatakon.core.data.model
 
 import android.os.Parcelable
+import androidx.compose.ui.graphics.Color
 import androidx.room.Entity
+import com.example.hatakon.ui.theme.NoInfoColor
+import com.example.hatakon.ui.theme.NonSecureColor
+import com.example.hatakon.ui.theme.SecureColor
 import androidx.room.PrimaryKey
 import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.parcelize.Parcelize
@@ -47,9 +51,31 @@ data class Device(
             DeviceType.Audio
         }
     }
+
+    fun getSecureType(): SecureType {
+        return when(deviceSecurity){
+            true -> SecureType.Secure
+            false -> SecureType.NotSecure
+            null -> SecureType.NoEnoughInfo
+        }
+    }
 }
 
 enum class DeviceType(){
     Video,
     Audio
+}
+
+enum class SecureType(val displayName:String){
+    Secure("Secure"),
+    NotSecure("Not secure"),
+    NoEnoughInfo("Not enough info")
+}
+
+fun SecureType.getColor(): Color {
+    return when(this){
+        SecureType.Secure -> SecureColor
+        SecureType.NotSecure -> NonSecureColor
+        SecureType.NoEnoughInfo -> NoInfoColor
+    }
 }
