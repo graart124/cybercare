@@ -14,4 +14,7 @@
     <string name="check_complited_we_do_not_have_enough_information_about_the_device">Check complited: we do not have  enough information about  the device</string>
     <string name="check_complited_your_device_is_secure">Check complited: Your device is secure</string>
     <string name="check_complited_your_device_is_not_secure">Check complited: Your device is not secure</string>
+    <string name="select_device">Select device</string>
+    <string name="devices">Devices</string>
+    <string name="device_characteristics">Device characteristics</string>
 </resources>

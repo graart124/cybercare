@@ -1,10 +1,12 @@
 package com.example.hatakon.core.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
 import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@Entity(tableName = "devices")
 data class Device(
     val id: String? = null,
     val deviceBrand: String? = null,
@@ -35,4 +37,17 @@ data class Device(
             )
         }
     }
+
+    fun getDeviceType():DeviceType{
+        return if(deviceType == "Video Baby Monitor"){
+            DeviceType.Video
+        }else{
+            DeviceType.Audio
+        }
+    }
+}
+
+enum class DeviceType(){
+    Video,
+    Audio
 }

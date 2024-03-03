@@ -23,7 +23,9 @@ import com.example.hatakon.R
 import com.example.hatakon.screens.NavGraphs
 import com.example.hatakon.screens.appCurrentDestinationAsState
 import com.example.hatakon.screens.destinations.Destination
-import com.example.hatakon.screens.destinations.SplashScreenDestination
+import com.example.hatakon.screens.destinations.DevicesScreenDestination
+import com.example.hatakon.screens.destinations.ProfileScreenDestination
+import com.example.hatakon.screens.destinations.SelectDeviceScreenDestination
 import com.example.hatakon.screens.startAppDestination
 import com.example.hatakon.ui.theme.AppTextStyle
 import com.example.hatakon.ui.theme.NavBarColor
@@ -40,9 +42,8 @@ fun BottomNavigationBar(
     val currentDestination: Destination = navController.appCurrentDestinationAsState().value
         ?: NavGraphs.root.startAppDestination
     val items = listOf(
-        BottomNavigationItem.Schedule,
-        BottomNavigationItem.AddLesson,
-        BottomNavigationItem.Session,
+        BottomNavigationItem.Secure,
+        BottomNavigationItem.Devices,
         BottomNavigationItem.Profile
     )
     if (items.any { it.destination == currentDestination }) {
@@ -108,13 +109,11 @@ private fun BottomNavItem(
 
 @ExperimentalMaterialApi
 sealed class BottomNavigationItem(val destination: Destination, val icon: Int, val title: String) {
-    data object Schedule :
-        BottomNavigationItem(SplashScreenDestination, R.drawable.ic_launcher_background, "Розклад")
+    data object Secure :
+        BottomNavigationItem(SelectDeviceScreenDestination, R.drawable.ic_launcher_background, "Secure")
 
-    data object AddLesson :
-        BottomNavigationItem(SplashScreenDestination, R.drawable.ic_launcher_background, "Нове заняття")
-    data object Session :
-        BottomNavigationItem(SplashScreenDestination, R.drawable.ic_launcher_background, "Сесія")
+    data object  Devices:
+        BottomNavigationItem(DevicesScreenDestination, R.drawable.ic_launcher_background, "Devices")
     data object Profile :
-        BottomNavigationItem(SplashScreenDestination, R.drawable.ic_launcher_background, "Профіль")
+        BottomNavigationItem(ProfileScreenDestination, R.drawable.ic_launcher_background, "Profile")
 }

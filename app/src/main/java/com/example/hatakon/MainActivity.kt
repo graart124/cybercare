@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.hatakon.screens.NavGraphs
+import com.example.hatakon.screens.bottombar.BottomNavigationBar
 import com.example.hatakon.ui.theme.HatakonTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
 
                 Scaffold(
-//                    bottomBar = { BottomNavigationBar(navController = navController) }
+                    bottomBar = { BottomNavigationBar(navController = navController) }
                 ) {
                     Box(
                         modifier = Modifier

@@ -66,8 +66,7 @@ fun SelectDeviceScreen(
         },
         topBar = {
             TopAppBar(
-                label = "Select device",
-                navigator = navigator
+                label = stringResource(R.string.select_device),
             )
         },
         containerColor = Background
