@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Text
@@ -65,9 +64,8 @@ fun SplashScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_splach_logo_fixed),
+            painter = painterResource(id = R.drawable.ic_logo),
             contentDescription = "welcome",
-            Modifier.size(200.dp, 260.dp),
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.height(100.dp))
