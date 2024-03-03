@@ -110,10 +110,10 @@ private fun BottomNavItem(
 @ExperimentalMaterialApi
 sealed class BottomNavigationItem(val destination: Destination, val icon: Int, val title: String) {
     data object Secure :
-        BottomNavigationItem(SelectDeviceScreenDestination, R.drawable.ic_launcher_background, "Secure")
+        BottomNavigationItem(SelectDeviceScreenDestination, R.drawable.ic_bottombar_security, "Secure")
 
     data object  Devices:
-        BottomNavigationItem(DevicesScreenDestination, R.drawable.ic_launcher_background, "Devices")
+        BottomNavigationItem(DevicesScreenDestination, R.drawable.ic_bottombar_devices, "Devices")
     data object Profile :
-        BottomNavigationItem(ProfileScreenDestination, R.drawable.ic_launcher_background, "Profile")
+        BottomNavigationItem(ProfileScreenDestination, R.drawable.ic_bottombar_profile, "Profile")
 }
