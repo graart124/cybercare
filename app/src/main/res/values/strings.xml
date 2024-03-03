@@ -17,4 +17,5 @@
     <string name="select_device">Select device</string>
     <string name="devices">Devices</string>
     <string name="device_characteristics">Device characteristics</string>
+    <string name="recent_checks">Recent checks</string>
 </resources>

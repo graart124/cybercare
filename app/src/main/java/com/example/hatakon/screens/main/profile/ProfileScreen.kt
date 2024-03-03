@@ -15,14 +15,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import com.example.hatakon.screens.main.profile.components.UserInfoSection
 import com.example.hatakon.core.util.OnLifecycleEvent
+import com.example.hatakon.screens.destinations.DeviceInfoScreenDestination
 import com.example.hatakon.screens.main.profile.components.DevicesChecksInfoSection
+import com.example.hatakon.screens.main.profile.components.RecentDeviceSection
 import com.example.hatakon.ui.components.TopAppBar
 import com.example.hatakon.ui.theme.Background
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 @Destination
 fun ProfileScreen(
+    navigator: DestinationsNavigator,
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val state = viewModel.uiState.collectAsState().value
@@ -54,6 +58,12 @@ fun ProfileScreen(
                     onSecureTypeClick = viewModel::onSecureTypeClick
                 )
                 Spacer(modifier = Modifier.height(10.dp))
+                RecentDeviceSection(
+                    devices = state.recentDevicesChecks,
+                    onClick = {device->
+                        navigator.navigate(DeviceInfoScreenDestination(device = device))
+                    }
+                )
             }
         }
     }
