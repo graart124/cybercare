@@ -1,10 +1,12 @@
 package com.example.hatakon.features.device.repository
 
+import com.example.hatakon.core.data.local.room.dao.DeviceDao
 import com.example.hatakon.core.data.model.Device
 import com.example.hatakon.core.data.network.firebase.DeviceDatabase
 
 class DeviceRepository(
-    private val database:DeviceDatabase
+    private val database:DeviceDatabase,
+    private val deviceDao:DeviceDao
 ) {
     fun getAllDevices(
         onSuccess: (List<Device>) -> Unit,
@@ -39,5 +41,12 @@ class DeviceRepository(
         database.getDevicesByTypeAndBrand(deviceType, deviceBrand, onSuccess, onFailure)
     }
 
+    suspend fun getAllRecentDevices(): List<Device> {
+        return deviceDao.getAllRecentDevices()
+    }
+
+    suspend fun insertDevice(device: Device){
+        deviceDao.insertDevice(device)
+    }
 
 }

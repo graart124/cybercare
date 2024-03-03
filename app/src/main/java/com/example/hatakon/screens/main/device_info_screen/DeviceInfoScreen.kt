@@ -33,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hatakon.R
 import com.example.hatakon.core.data.model.Device
 import com.example.hatakon.screens.main.device_info_screen.components.AnalyzeDataSection
@@ -53,7 +54,8 @@ import kotlinx.coroutines.delay
 @Destination
 fun DeviceInfoScreen(
     navigator: DestinationsNavigator,
-    device: Device
+    device: Device,
+    viewModel: DeviceInfoScreenViewModel= hiltViewModel()
 ) {
     val showAnalyzeData = remember { mutableStateOf(false) }
 
@@ -61,6 +63,7 @@ fun DeviceInfoScreen(
         showAnalyzeData.value = true
         delay(1500)
         showAnalyzeData.value = false
+        viewModel.insertRecentDevices(device)
     }
 
     val snackbarHostState = remember { SnackbarHostState() }

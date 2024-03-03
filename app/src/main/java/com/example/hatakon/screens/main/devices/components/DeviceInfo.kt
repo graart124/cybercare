@@ -86,7 +86,7 @@ fun DeviceInfo(device: Device, onClick: () -> Unit) {
 
 @Composable
 fun DeviceTypeImage(device: Device) {
-    val iconId = when (device.getDeviceType()) {
+    val iconId = when (device.getDeviceTypeEnum()) {
         Video -> R.drawable.ic_video
         Audio -> R.drawable.ic_audio
     }

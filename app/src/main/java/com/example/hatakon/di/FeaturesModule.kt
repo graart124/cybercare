@@ -1,5 +1,8 @@
 package com.example.hatakon.di
 
+import android.app.Application
+import androidx.room.Room
+import com.example.hatakon.core.data.local.room.db.CyberCareDatabase
 import com.example.hatakon.core.data.local.storage.UserDataLocalStorage
 import com.example.hatakon.core.data.network.firebase.DeviceDatabase
 import com.example.hatakon.features.device.repository.DeviceRepository
@@ -23,7 +26,19 @@ object FeaturesModule {
 
     @Provides
     @Singleton
-    fun provideDeviceRepository(database: DeviceDatabase): DeviceRepository {
-        return DeviceRepository(database)
+    fun provideDeviceRepository(deviceDataBase: DeviceDatabase, db:CyberCareDatabase): DeviceRepository {
+        return DeviceRepository(deviceDataBase, db.deviceDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCyberCareDatabase(app: Application): CyberCareDatabase {
+        return Room.databaseBuilder(
+            app,
+            CyberCareDatabase::class.java,
+            "cyber_care_app_db"
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 }
